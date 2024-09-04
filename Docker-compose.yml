@@ -1,0 +1,38 @@
+services:
+  authorizerserver:
+    build:
+      context: ./authorizer # Reemplaza con la ruta a tu proyecto de Spring Boot
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    environment:
+      - JWT_SECRET=stivenAndresUniquindio
+      - CORS_ALLOWED_ORIGINS=http://authclient:3000
+    networks:
+      - app-network
+
+  # vue:
+  #   build:
+  #     context: ./client-login  # Reemplaza con la ruta a tu proyecto de Vue 3
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "3000:3000"
+  #   depends_on:
+  #     - springboot
+  authclient:
+    build:
+      context: ./AuthClient
+      dockerfile: Dockerfile # Dockerfile para el cliente Java
+    environment:
+      - AUTH_URL=http://authorizerserver:80/login
+      - GREETING_URL=http://authorizerserver:80/saludo
+    ports:
+      - "3000:3000"
+    depends_on:
+      - authorizerserver
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

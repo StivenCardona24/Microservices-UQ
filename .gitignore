@@ -38,6 +38,4 @@ Thumbs.db
 *.tmp
 *.bak
 
-# Archivos Docker
-**/Dockerfile
-**/docker-compose.yml
+
