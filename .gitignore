@@ -1,0 +1,43 @@
+# Directorios de compilación de Gradle en la carpeta authorizer
+authorizer/.gradle/
+authorizer/build/
+!authorizer/build/libs/
+
+# Archivos temporales de Gradle
+authorizer/gradle-app.setting
+authorizer/gradle-wrapper.jar
+authorizer/gradle-wrapper.properties
+
+# Archivos generados por Gradle
+authorizer/*.jar
+authorizer/*.war
+authorizer/*.ear
+authorizer/*.zip
+authorizer/*.tar.gz
+
+# Archivos específicos del entorno
+*.env
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de IDE
+.idea/
+*.iml
+*.class
+*.project
+*.classpath
+*.settings/
+*.metadata/
+*.sublime-project
+*.sublime-workspace
+
+# Otros archivos no deseados
+*.log
+*.tmp
+*.bak
+
+# Archivos Docker
+**/Dockerfile
+**/docker-compose.yml
